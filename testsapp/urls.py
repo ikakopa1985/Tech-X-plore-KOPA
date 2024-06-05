@@ -26,3 +26,28 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+
+
+# Using the URLconf defined in kopa.urls, Django tried these URL patterns, in this order:
+#
+# api-auth/
+# admin/
+# ^testlist/$ [name='test-list']
+# ^testlist\.(?P<format>[a-z0-9]+)/?$ [name='test-list']
+# ^testlist/(?P<pk>[^/.]+)/$ [name='test-detail']
+# ^testlist/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$ [name='test-detail']
+# ^users/$ [name='UserIdentViewSet-list']
+# ^users\.(?P<format>[a-z0-9]+)/?$ [name='UserIdentViewSet-list']
+# ^users/(?P<pk>[^/.]+)/$ [name='UserIdentViewSet-detail']
+# ^users/(?P<pk>[^/.]+)\.(?P<format>[a-z0-9]+)/?$ [name='UserIdentViewSet-detail']
+# [name='api-root']
+# <drf_format_suffix:format> [name='api-root']
+# index/ [name='index']
+# api/token/ [name='token_obtain_pair']
+# api/token/refresh/ [name='token_refresh']
+# api/user-profile/ [name='user_profile']
+# gettest/ [name='random-test']
+# ^media/(?P<path>.*)$
+# The current path, index/asd, didn’t match any of these.
