@@ -3,60 +3,39 @@
 
 {% block content %}
     <div class="centralDiv">
-        <div>
-            <br>
-    <h1 style="color: #990000">'please LOG IN  and   then REFRESH PAGE'</h1>
+        <div><br>
+            <h1 style="color: #990000">'please LOG IN  and   then REFRESH PAGE'</h1>
             <h2 style="color: #990000">'admin user: admin,  password:admin'</h2>
              <br>
-             <div class="">
-                 <br>
-                  <h3>Get Books</h3>
-                    <input type="text" id="paginKeyword" placeholder="pagin number" value="1" required><button class="filterItem" id="paginBut">Get All Books With Paginate</button>
-                    <input type="text" id="bookId" placeholder="Book ID" value="1178" required><button class="filterItem" id="sendRequestBtnBookItem">Get Book By Id</button>
-                   </div>
-            <div class="">
-                      <br>
-                  <h3>Reserve Book</h3>
-                 <form id="addReserveForm">
-                        <input type="date" id="reserveDate"  placeholder="Reserve Date" required>
-                        <input type="text" id="bookIdReserve" value="1178" placeholder="Book ID" required>
-                        <button class="filterItem" type="submit">Add Reservation</button>
-                      <div class="">
-                      <br><br>
-                        <h3>Search And Filters</h3>
-                 </form>
-            </div>
+                 <div class="">
+                     <br>
+                     <form id="getTestForm" action="" onsubmit="return false">
+                         <input type="checkbox" id="logicChekbox" name="logic" value="">&nbsp
+                         <label for="logicChekbox">ლოგიკურები</label> &nbsp &nbsp
+                         <input type="checkbox" id="mathChekbox" name="math" value="">&nbsp
+                         <label for="mathChekbox">მათემატიკურები</label> &nbsp
+                         <button id="submitGetTests" type="submit">ფილტრი</button>
+                     </form>
+            <br>
+            <fieldset id="" style="padding:15px">
+                <legend id="testText"></legend>
+                <div id="testImageContainer"></div>
+                <br>
+                <div id="radioButtonsContainer"></div>
+                <br>
+                <div>
+                    <button id="submitAnswer" type="submit">Submit</button>
 
-                        <input type="text" id="searchKeyword" placeholder="Search" value="Secret " required><button class="filterItem" id="searchBut">Search</button>
-                        <input type="text" id="categoryKeyword" placeholder="category filter" value="Fantasy" required><button class="filterItem" id="categoryBut">Filter category</button>
-                        <input type="text" id="authorKeyword" placeholder="author filter" value="L. Frank Baum" required><button class="filterItem" id="authorBut">Filter author</button>
-                <div class="">
-                    <br><br>
-                        <h3>Statistics</h3>
-                       <button class="filterItem" id="get10PopularBooksBut">Get 10 Popular Books</button>
-                       <button class="filterItem" id="getAllBookLease1YearBut">get All Book Lease 1Year</button>
-                       <button class="filterItem" id="get100BookMostOverdueBut">get 100 Book Most Overdue </button>
-                       <button class="filterItem" id="get100UserMostOverdueBut">get 100 User Most Overdue </button>
-                </div>
-                    <div class="">
-                        <br><br>
-                            <h3>Bonus</h3>
-                           <button class="filterItem" id="getSortedBooksBut">get Sorted Books by lease count</button>
+            </fieldset>
 
-                        <h3>add wish book</h3>
-                             <form id="addtowishlistform">
-                                    <input type="text" id="bookidinput" value="1178" placeholder="Book ID" required>
-                                    <button class="filterItem" type="submit">Add book to wishlist</button>
 
-                             </form>
-                        </div>
 
-            </div>
+            <br>
              <div style="width: 70%"  >
                 <p>response</p>
                 <textarea style="width:1000px;height: 615px" id="responseApi"></textarea>
             </div>
-
+    </div>
         </div>
 
     </div>

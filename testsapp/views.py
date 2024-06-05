@@ -1,3 +1,4 @@
+import random
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from rest_framework.permissions import IsAuthenticated
@@ -8,6 +9,7 @@ from testsapp.serializers import UserSerializer
 from rest_framework import viewsets
 from testsapp.serializers import *
 from testsapp.models import *
+from rest_framework.views import APIView
 
 # Create your views here.
 
@@ -32,14 +34,40 @@ class UserProfileView(APIView):
 class UserIdentViewSet(viewsets.ModelViewSet):
     queryset = UserIdent.objects.all()
     serializer_class = UserIdentSerializer
+    # permission_classes = [IsAuthenticated]
 
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    # permission_classes = [IsAuthenticated]
 
 
 class TestListViewSet(viewsets.ModelViewSet):
     queryset = Test.objects.all()
     serializer_class = TestListSerializer
+
+
+class RandomTestAPIView(APIView):
+
+    def get(self, request, *args, **kwargs):
+        queryset = Test.objects.all()
+        logical = request.query_params.get('logical', 'false').lower() == 'true'
+        math = request.query_params.get('math', 'false').lower() == 'true'
+
+        if logical and math:
+            queryset = queryset.filter(test_type__test_type_name__in=['ლოგიკური', 'მათემატიკური'])
+        elif logical:
+            queryset = queryset.filter(test_type__test_type_name='ლოგიკური')
+        elif math:
+            queryset = queryset.filter(test_type__test_type_name='მათემატიკური')
+
+        if queryset.exists():
+            random_test = random.choice(queryset)
+            serializer = TestListSerializer(random_test)
+            # print(serializer.data)
+            return Response(serializer.data)
+        else:
+            return Response({'detail': 'No tests found matching the criteria.'})
+
 

@@ -10,10 +10,21 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['url', 'username', 'email', 'is_staff']
 
 
+class AnswersSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Answers
+        fields = ['id', 'answer_text', 'answers_image', 'is_correct']
+
+
 class TestListSerializer(serializers.ModelSerializer):
+    answers = AnswersSerializer(many=True, read_only=True, source='answers_set')
+
     class Meta:
         model = Test
-        fields = '__all__'
+        fields = [
+            'id', 'test_origin', 'number', 'test_type', 'testText',
+            'testDescription', 'testImage', 'answers'
+        ]
 
 
 class UserSerializer(ModelSerializer):

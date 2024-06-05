@@ -51,7 +51,7 @@ class Test(models.Model):
 
     testDescription = models.TextField(max_length=5264, verbose_name=' აღწერა',
                                        blank=True, null=True, default=None)
-    testImage = models.ImageField(upload_to='photos/proposition/%y/%m/%d/', verbose_name=' ფოტო',
+    testImage = models.ImageField(upload_to='photos/test_photos/%y/%m/%d/', verbose_name=' ფოტო',
                                   blank=True, null=True, default=None)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -68,6 +68,8 @@ class Answers(models.Model):
     tests = models.ForeignKey(Test, on_delete=models.CASCADE, verbose_name=' ტესტის ტიპი',
                               blank=True, null=True, default=None)
     answer_text = models.TextField(verbose_name=' პასუხის შინაარსი', blank=True, null=True, default=None)
+    answers_image = models.ImageField(upload_to='photos/Answer_photos/%y/%m/%d/', verbose_name=' ფოტო', blank=True,
+                      default=None, null=True)
     is_correct = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

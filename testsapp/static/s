@@ -1,0 +1,25 @@
+
+    document.getElementById("loginForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        apiRequest('/api/token/', 'POST', { username, password }, false)
+            .then(data => {
+                localStorage.setItem('token', data.access);
+                document.getElementById('token').innerHTML = `Token: ${data.access}`;
+                // const token = data.access
+                return apiRequest('/api/user-profile/', 'GET');
+            })
+            .then(profileData => {
+                console.log('Authenticated!');
+                console.log('User Profile Data:', profileData);
+                document.getElementById('token').innerHTML =
+                    document.getElementById('token').innerHTML +
+                    '            \n    '+
+                    'email=' + profileData['email'] +
+                    '            \n    '+
+                    'username= ' + profileData['username']
+            });
+
+    });
