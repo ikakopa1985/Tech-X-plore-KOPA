@@ -22,15 +22,46 @@ class TestListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Test
         fields = [
-            'id', 'test_origin', 'number', 'test_type', 'testText',
+            'id', 'test_origin', 'testText',
             'testDescription', 'testImage', 'answers'
         ]
+
+
+class Category1Serializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category1
+        fields = ['id', 'name']
+
+
+class Category2Serializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category2
+        fields = ['id', 'name']
+
+
+class QuizCategorySerializer(serializers.Serializer):
+    cat1 = serializers.CharField(max_length=255)
+    cat2 = serializers.CharField(max_length=255)
+    cat3 = serializers.CharField(max_length=255)
+    totalQuiz = serializers.IntegerField()
+    imageUrl = serializers.URLField()
+
+
+class QuizListSerializer(serializers.Serializer):
+    imageUrl = serializers.URLField()
+    quizzCount = serializers.IntegerField()
+
+
+class ProductSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Product
+        fields = ['id', 'name', 'price', 'productImage']
 
 
 class UserSerializer(ModelSerializer):
     class Meta:
         model = User
-        fields = ['username', 'password', 'email', 'first_name', 'last_name']
+        fields = ['username', 'email']
 
     def create(self, validated_data):
         user = User.objects.create_user(**validated_data)
@@ -42,7 +73,7 @@ class UserIdentSerializer(ModelSerializer):
 
     class Meta:
         model = UserIdent
-        fields = ['full_name', 'personal_number', 'birth_date', 'user']
+        fields = ['full_name', 'birth_date', 'points', 'coins', 'user']
 
     def create(self, validated_data):
         user_data = validated_data.pop('user')

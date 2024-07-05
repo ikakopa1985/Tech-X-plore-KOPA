@@ -15,13 +15,16 @@ router.register(r'testlist', TestListViewSet)
 router.register(r'users', UserIdentViewSet, basename='UserIdentViewSet'),
 
 urlpatterns = [
-    path('', include(router.urls)),
-    path("index/", index, name='index'),
+    path('api/', include(router.urls)),
+    path("", index, name='index'),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/user-profile/', UserProfileView.as_view(), name='user_profile'),
 
-    path('gettest/', RandomTestAPIView.as_view(), name='random-test'),
+    path('gettest/', GetQuizApiAPIView.as_view(), name='GetQuizApiAPIView'),
+    path('catFilter/', CatFilterAPIView.as_view(), name='CatFilterAPIView'),
+    path('ProductAPIView/', ProductAPIView.as_view(), name='ProductAPIView'),
+
 ]
 
 if settings.DEBUG:

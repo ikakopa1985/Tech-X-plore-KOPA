@@ -4,29 +4,77 @@
 {% block content %}
     <div class="centralDiv">
         <div><br>
-            <h1 style="color: #990000">'please LOG IN  and   then REFRESH PAGE'</h1>
-            <h2 style="color: #990000">'admin user: admin,  password:admin'</h2>
+{#            <h1 style="color: #990000">'please LOG IN  and   then REFRESH PAGE'</h1>#}
+{#            <h2 style="color: #990000">'admin user: admin,  password:admin'</h2>#}
              <br>
                  <div class="">
                      <br>
-                     <form id="getTestForm" action="" onsubmit="return false">
-                         <input type="checkbox" id="logicChekbox" name="logic" value="">&nbsp
-                         <label for="logicChekbox">ლოგიკურები</label> &nbsp &nbsp
-                         <input type="checkbox" id="mathChekbox" name="math" value="">&nbsp
-                         <label for="mathChekbox">მათემატიკურები</label> &nbsp
-                         <button id="submitGetTests" type="submit">ფილტრი</button>
-                     </form>
-            <br>
-            <fieldset id="" style="padding:15px">
-                <legend id="testText"></legend>
-                <div id="testImageContainer"></div>
-                <br>
-                <div id="radioButtonsContainer"></div>
-                <br>
-                <div>
-                    <button id="submitAnswer" type="submit">Submit</button>
+{#                     <form id="getTestForm" action="" onsubmit="return false">#}
+{#                         <input type="checkbox" id="logicChekbox" name="logic" value="">&nbsp#}
+{#                         <label for="logicChekbox">ლოგიკურები</label> &nbsp &nbsp#}
+{#                         <input type="checkbox" id="mathChekbox" name="math" value="">&nbsp#}
+{#                         <label for="mathChekbox">მათემატიკურები</label> &nbsp#}
+{#                         <button id="submitGetTests" type="submit">ფილტრი</button>#}
+{#                     </form>#}
 
-            </fieldset>
+                     <form id="getTestFormByCat" action="" onsubmit="return false">
+                            <label for="cat1">cat1:</label>
+                            <select name="cat1cars" id="cat1">
+                                <option value="მათემატიკური">მათემატიკური</option>
+                                <option value="პროგრამირება">პროგრამირება</option>
+                                <option value=""></option>
+                            </select>
+
+                            <label for="cat2">cat2:</label>
+                            <select name="cat2cars" id="cat2">
+                                <option value="PYTHON">PYTHON</option>
+                                <option value="უმაღლესი მათემატიკა">უმაღლესი მათემატიკა</option>
+                                <option value="REACT">REACT</option>
+                                <option value="IOS">IOS</option>
+                                <option value=""></option>
+                            </select>
+
+                            <label for="cat3">cat3:</label>
+                            <select name="cat3cars" id="cat3">
+                                <option value="Intro">Intro</option>
+                                <option value="ალბათობა">ალბათობა</option>
+                                <option value="Advance">Advance</option>
+                                <option value=""></option>
+                            </select>
+                          <label for="quizNumb">quizNumb</label>
+                         <input id="quizNumb" type="text">
+
+                            <button id="submitFormButton" type="submit">Submit</button>
+                        </form>
+
+                       <form id="getTestFilter" action="" onsubmit="return false">
+                            <label for="cat">ფილტრი, ძებნა </label>
+                            <select name="catFilter" id="catFilter">
+                                <option value="PYTHON">PYTHON</option>
+                                <option value="IOS">IOS</option>
+                                <option value="REACT">REACT</option>
+                                <option value="უმაღლესი მათემატიკა">უმაღლესი მათემატიკა</option>
+                                <option value="სკოლა">სკოლა</option>
+                                <option value="კოლეჯი">კოლეჯი</option>
+                                <option value="PYT">PYT</option>
+                                <option value=""></option>
+                            </select>
+
+                            <button id="submitForgetTestFilter" type="submit">Submit Filter</button>
+                        </form>
+
+
+            <br>
+{#            <fieldset id="" style="padding:15px">#}
+{#                <legend id="testText"></legend>#}
+{#                <div id="testImageContainer"></div>#}
+{#                <br>#}
+{#                <div id="radioButtonsContainer"></div>#}
+{#                <br>#}
+{#                <div>#}
+{#                    <button id="submitAnswer" type="submit">Submit</button>#}
+{##}
+{#            </fieldset>#}
 
 
 

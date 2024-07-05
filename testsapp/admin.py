@@ -4,20 +4,29 @@ from testsapp.models import *
 # Register your models here.
 
 
-class TestOriginAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in TestOrigin._meta.fields]
+class Category3Admin(admin.ModelAdmin):
+    list_display = [field.name for field in Category3._meta.fields]
 
     class Meta:
-        model = TestOrigin
+        model = Category3
         extra = 0
 
 
-class TestTypeAdmin(admin.ModelAdmin):
-    list_display = [field.name for field in TestType._meta.fields]
+class Category2Admin(admin.ModelAdmin):
+    list_display = [field.name for field in Category2._meta.fields]
 
     class Meta:
-        model = TestType
+        model = Category2
         extra = 0
+
+
+class Category1Admin(admin.ModelAdmin):
+    list_display = [field.name for field in Category1._meta.fields]
+
+    class Meta:
+        model = Category1
+        extra = 0
+
 
 
 class AnswersInline(admin.TabularInline):
@@ -51,8 +60,20 @@ class UserIdentAdmin(admin.ModelAdmin):
     autocomplete_fields = ['user']
 
 
-admin.site.register(TestOrigin, TestOriginAdmin)
-admin.site.register(TestType, TestTypeAdmin)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in Product._meta.fields]
+
+    class Meta:
+        model = Product
+        extra = 0
+
+
+admin.site.register(Category3, Category3Admin)
+admin.site.register(Category2, Category2Admin)
+admin.site.register(Category1, Category1Admin)
+
+admin.site.register(Product, ProductAdmin)
+
 admin.site.register(Test, TestAdmin)
 admin.site.register(Answers, AnswersAdmin)
 admin.site.register(UserIdent, UserIdentAdmin)
