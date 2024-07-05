@@ -1,3 +1,9 @@
+admin user: admin
+admin password:User@123
+
+
+
+
 pass: kOp@Tes7TprojEct
 
 source /usr/local/lsws/Example/html/bin/activate
@@ -9,3 +15,5 @@ killall lswsgi
 
 
 pip install openai==0.28
+
+
