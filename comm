@@ -1,10 +1,4 @@
 
-
-
-
-
-pass: kOp@Tes7TprojEct
-
 source /usr/local/lsws/Example/html/bin/activate
 cd /usr/local/lsws/Example/html/demo
 python manage.py collectstatic
