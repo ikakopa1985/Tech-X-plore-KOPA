@@ -1,5 +1,5 @@
 venv/
-pass
+/pass
 .idea
 __pycache__/
 applibrary__pycache__/
