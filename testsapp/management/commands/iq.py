@@ -52,6 +52,7 @@ class Command(BaseCommand):
             self.stderr.write(self.style.ERROR(f"OpenAI API error: {str(e)}"))
         try:
             data = json.loads(resp)
+            self.stdout.write(self.style.SUCCESS(data))
             test_text = data.get('testText')
             answers = data.get('answers', [])
             category3 = Category3.objects.get(name=cat3, category2__name=cat2, category2__category1__name=cat1)
