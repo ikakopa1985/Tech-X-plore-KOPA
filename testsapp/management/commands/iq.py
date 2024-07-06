@@ -9,7 +9,7 @@ class Command(BaseCommand):
     help = 'Import questions'
 
     def handle(self, *args, **kwargs):
-        openai.api_key = 'sk-proj-p32YR3NacYc19hUQyavMT3BlbkFJxAjM7onuwqkj5eBy7i5B'
+        openai.api_key = ''
         testTypeGenerate = input('''please select test type for generate Test: 
                                     1 - python 
                                     2 - IOS
